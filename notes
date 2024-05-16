@@ -1,0 +1,11 @@
+AUTH 2.0 explained: 
+
+The user grants our application access to their information. Our application
+then communicates with Google or Githubs authorization server to let them know
+we have been granted access. The authorization server then provides our app with
+an access token. Our app then sends this access token to Google or Github's 
+resource server and retrieves what it needs. 
+
+
+
+
