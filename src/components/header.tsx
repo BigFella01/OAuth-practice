@@ -1,11 +1,9 @@
 import {
-  Button,
-  Link,
   Navbar,
   NavbarBrand,
-  NavbarContent,
   NavbarItem,
 } from "@nextui-org/react";
+import HeaderAuth from "./header-auth";
 
 export default function Header() {
   return (
@@ -13,6 +11,9 @@ export default function Header() {
       <NavbarBrand>
         <p className="font-bold text-inherit">OAuth App</p>
       </NavbarBrand>
+      <NavbarItem>
+        <HeaderAuth />
+      </NavbarItem>
     </Navbar>
   );
 }

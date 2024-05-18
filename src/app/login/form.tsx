@@ -1,5 +1,8 @@
 "use client"; // Indicates that this module is client-side code.
 
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
+import { Image } from "@nextui-org/react";
 import { signIn } from "next-auth/react"; // Import the signIn function from NextAuth for authentication.
 import { useSearchParams, useRouter } from "next/navigation"; // Import Next.js navigation utilities.
 import { ChangeEvent, useState } from "react"; // Import React hooks for managing component state.
@@ -14,7 +17,9 @@ export const LoginForm = () => {
   const [error, setError] = useState(""); // State for handling errors during authentication.
 
   const searchParams = useSearchParams(); // Get query parameters from the URL.
-  const callbackUrl = searchParams.get("callbackUrl") || "/profile"; // Define a callback URL or use a default one.
+  console.log(searchParams)
+  const callbackUrl = searchParams.get("callbackUrl") || "/"; // Define a callback URL or use a default one.
+  console.log(callbackUrl)
 
   // Handle form submission
   const onSubmit = async (e: React.FormEvent) => {
@@ -109,12 +114,7 @@ export const LoginForm = () => {
         onClick={() => signIn("google", { callbackUrl })}
         role="button"
       >
-        <img
-          className="pr-2"
-          src="/images/google.svg"
-          alt=""
-          style={{ height: "2rem" }}
-        />
+        <FcGoogle className="mr-4" />
         Continue with Google
       </a>
 
@@ -125,12 +125,7 @@ export const LoginForm = () => {
         onClick={() => signIn("github", { callbackUrl })}
         role="button"
       >
-        <img
-          className="pr-2"
-          src="/images/github.png"
-          alt=""
-          style={{ height: "2.2rem" }}
-        />
+        <FaGithub className="mr-4" style={{color: '#4078c0'}} />
         Continue with GitHub
       </a>
     </form>
