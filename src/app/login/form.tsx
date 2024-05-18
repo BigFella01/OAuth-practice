@@ -21,7 +21,7 @@ export const LoginForm = () => {
   // console.log(searchParams);
   // const callbackUrl = searchParams.get("callbackUrl") || "/"; // Define a callback URL or use a default one.
   // console.log(callbackUrl);
-  const callbackUrl = 'http://localhost:3000'
+  const callbackUrl = 'https://oauth-practice-green.vercel.app'
 
   // Handle form submission
   const onSubmit = async (e: React.FormEvent) => {
