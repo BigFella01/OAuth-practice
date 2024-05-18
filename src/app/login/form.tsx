@@ -19,9 +19,7 @@ export const LoginForm = () => {
 
   const searchParams = useSearchParams(); // Get query parameters from the URL.
   console.log(searchParams);
-  const callbackUrl =
-    searchParams.get("callbackUrl") ||
-    "https://oauth-practice-green.vercel.app"; // Define a callback URL or use a default one.
+  const callbackUrl = searchParams.get("callbackUrl") || "/"; // Define a callback URL or use a default one.
   console.log(callbackUrl);
 
   // Handle form submission
