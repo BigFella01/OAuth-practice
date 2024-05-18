@@ -17,9 +17,11 @@ export const LoginForm = () => {
   const [error, setError] = useState(""); // State for handling errors during authentication.
 
   const searchParams = useSearchParams(); // Get query parameters from the URL.
-  console.log(searchParams)
-  const callbackUrl = searchParams.get("callbackUrl") || "http://localhost:3000"; // Define a callback URL or use a default one.
-  console.log(callbackUrl)
+  console.log(searchParams);
+  const callbackUrl =
+    searchParams.get("callbackUrl") ||
+    "https://oauth-practice-green.vercel.app"; // Define a callback URL or use a default one.
+  console.log(callbackUrl);
 
   // Handle form submission
   const onSubmit = async (e: React.FormEvent) => {
@@ -33,7 +35,7 @@ export const LoginForm = () => {
         redirect: false,
         email: formValues.email,
         password: formValues.password,
-        callbackUrl
+        callbackUrl,
       });
 
       setLoading(false); // Set loading state back to false.
@@ -125,7 +127,7 @@ export const LoginForm = () => {
         onClick={() => signIn("github", { callbackUrl })}
         role="button"
       >
-        <FaGithub className="mr-4" style={{color: '#4078c0'}} />
+        <FaGithub className="mr-4" style={{ color: "#4078c0" }} />
         Continue with GitHub
       </a>
     </form>
