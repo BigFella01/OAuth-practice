@@ -17,10 +17,11 @@ export const LoginForm = () => {
   }); // State for form input values.
   const [error, setError] = useState(""); // State for handling errors during authentication.
 
-  const searchParams = useSearchParams(); // Get query parameters from the URL.
-  console.log(searchParams);
-  const callbackUrl = searchParams.get("callbackUrl") || "/"; // Define a callback URL or use a default one.
-  console.log(callbackUrl);
+  // const searchParams = useSearchParams(); // Get query parameters from the URL.
+  // console.log(searchParams);
+  // const callbackUrl = searchParams.get("callbackUrl") || "/"; // Define a callback URL or use a default one.
+  // console.log(callbackUrl);
+  const callbackUrl = 'http://localhost:3000'
 
   // Handle form submission
   const onSubmit = async (e: React.FormEvent) => {
@@ -34,8 +35,8 @@ export const LoginForm = () => {
         redirect: false,
         email: formValues.email,
         password: formValues.password,
-        callbackUrl,
-      });
+        callbackUrl
+      })
 
       setLoading(false); // Set loading state back to false.
 
@@ -132,3 +133,6 @@ export const LoginForm = () => {
     </form>
   );
 };
+
+
+// https://oauth-practice-green.vercel.app/login?callbackUrl=https%3A%2F%2Foauth-practice-green.vercel.app%2F&error=OAuthCallback
