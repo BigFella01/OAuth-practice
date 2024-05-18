@@ -39,3 +39,6 @@ export default async function Profile() {
     </>
   );
 }
+
+
+// https://oauth-practice-green.vercel.app/login?callbackUrl=https%3A%2F%2Foauth-practice-green.vercel.app%2F&error=OAuthCallback

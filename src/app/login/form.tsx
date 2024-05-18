@@ -2,7 +2,7 @@
 
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
-import { Image } from "@nextui-org/react";
+import { Button, Image } from "@nextui-org/react";
 import { signIn } from "next-auth/react"; // Import the signIn function from NextAuth for authentication.
 import { useSearchParams, useRouter } from "next/navigation"; // Import Next.js navigation utilities.
 import { ChangeEvent, useState } from "react"; // Import React hooks for managing component state.
@@ -18,7 +18,7 @@ export const LoginForm = () => {
 
   const searchParams = useSearchParams(); // Get query parameters from the URL.
   console.log(searchParams)
-  const callbackUrl = searchParams.get("callbackUrl") || "/"; // Define a callback URL or use a default one.
+  const callbackUrl = searchParams.get("callbackUrl") || "http://localhost:3000"; // Define a callback URL or use a default one.
   console.log(callbackUrl)
 
   // Handle form submission
@@ -33,7 +33,7 @@ export const LoginForm = () => {
         redirect: false,
         email: formValues.email,
         password: formValues.password,
-        callbackUrl,
+        callbackUrl
       });
 
       setLoading(false); // Set loading state back to false.
@@ -93,14 +93,14 @@ export const LoginForm = () => {
       </div>
 
       {/* Sign In button */}
-      <button
+      <Button
         type="submit"
         style={{ backgroundColor: `${loading ? "#ccc" : "#3446eb"}` }}
         className="inline-block px-7 py-4 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full"
         disabled={loading}
       >
         {loading ? "loading..." : "Sign In"}
-      </button>
+      </Button>
 
       {/* OR divider */}
       <div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
