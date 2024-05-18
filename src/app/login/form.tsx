@@ -9,6 +9,7 @@ import { ChangeEvent, useState } from "react"; // Import React hooks for managin
 
 export const LoginForm = () => {
   const router = useRouter(); // Initialize the Next.js router.
+  console.log(router);
   const [loading, setLoading] = useState(false); // State for managing loading state.
   const [formValues, setFormValues] = useState({
     email: "",
